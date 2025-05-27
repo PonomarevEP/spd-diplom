@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from rest_framework.authtoken.models import Token
 
 
 User = get_user_model()
@@ -27,3 +28,11 @@ class Comment(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    # Дополнительные поля профиля пользователя
+
+    def __str__(self):
+        return self.user.username
