@@ -2,20 +2,13 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from rest_framework.authtoken.models import Token
 
-
 User = get_user_model()
-
 
 class Post(models.Model):
     text = models.TextField()
     image = models.ImageField(upload_to='posts/')
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-
-
-# для доп. задания
-# class PostImage(models.Model):
-#     ...
 
 
 class Like(models.Model):
@@ -28,15 +21,3 @@ class Comment(models.Model):
     text = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-
-    
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # Дополнительные поля профиля пользователя
-
-    def __str__(self):
-        return self.user.username
-    
-class Like(models.Model):
-    post = models.ForeignKey(Post, related_name='likes', on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)

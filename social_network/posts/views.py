@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .models import Post, Comment, Like
-from .serializers import PostSerializer, CommentSerializer, UserSerializer, TokenSerializer, LikeSerializer
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
+from .serializers import PostSerializer, CommentSerializer, UserSerializer, LikeSerializer
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework import generics, permissions
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
