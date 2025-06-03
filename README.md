@@ -16,6 +16,13 @@
 - **PUT /api/comments/{id}/**: Редактирование комментария.
 - **DELETE /api/comments/{id}/**: Удаление комментария.
 
+## Лайки
+
+- **GET /api/likes/**: Получение списка всех лайков.
+- **POST /api/likes/**: Создание нового лайка.
+- **GET /api/likes/{id}/**: Получение деталей лайка.
+- **DELETE /api/likes/{id}/**: Удаление лайка
+
 ###Регистрация пользователя: 
 curl -X POST "http://127.0.0.1:8000/register/" -d "username=your_username&password=your_password"
 
