@@ -17,8 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from posts.views import PostViewSet, CommentViewSet, UserCreate, CustomAuthToken, LikeViewSet
-from rest_framework.authtoken.views import obtain_auth_token
+from posts.views import (
+    PostViewSet,
+    CommentViewSet,
+    UserCreate,
+    CustomAuthToken,
+    LikeViewSet
+)
 
 router = DefaultRouter()
 router.register(r'posts', PostViewSet)
@@ -30,5 +35,4 @@ urlpatterns = [
     path('api/', include(router.urls)),
     path('register/', UserCreate.as_view(), name='register'),
     path('login/', CustomAuthToken.as_view(), name='login'),
-    path('', include(router.urls)),
 ]
